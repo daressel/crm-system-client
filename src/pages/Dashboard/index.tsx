@@ -1,4 +1,4 @@
-import { Card, Col, Row, Space } from "antd";
+import { Button, Card, Col, Row, Space } from "antd";
 import { FC } from "react";
 
 const products = [
@@ -11,11 +11,23 @@ const products = [
 
 const Dashboard: FC = () => {
   console.log("Dashboard");
+  const onClick = () => {
+    const audio = new Audio("/sounds/click.mp3");
+    audio.play();
+  };
+
+  const onMouseEnter = () => {
+    const audio = new Audio("/sounds/click.mp3");
+    audio.play();
+  };
   return (
     <Space.Compact direction="vertical" size="middle" block>
       {products.map((product, index) => (
-        <Card key={index} title={product.title} />
+        <Card onMouseEnter={onMouseEnter} key={index} title={product.title} />
       ))}
+      <Button onClick={onClick} type="primary">
+        qwe
+      </Button>
     </Space.Compact>
   );
 };
