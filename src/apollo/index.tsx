@@ -10,7 +10,6 @@ import { setContext } from "@apollo/client/link/context";
 import { onError } from "@apollo/client/link/error";
 import { GraphQLWsLink } from "@apollo/client/link/subscriptions";
 import { getMainDefinition } from "@apollo/client/utilities";
-import { notification } from "antd";
 import { createClient } from "graphql-ws";
 
 export const ApolloApp = ({ children }: any) => {

@@ -1,5 +1,9 @@
-import { Button, Card, Col, Row, Space } from "antd";
 import { FC } from "react";
+import classnames from "classnames/bind";
+
+import styles from "./Dashboard.module.scss";
+
+const cn = classnames.bind(styles);
 
 const products = [
   { title: "product1" },
@@ -10,25 +14,14 @@ const products = [
 ];
 
 const Dashboard: FC = () => {
-  console.log("Dashboard");
-  const onClick = () => {
-    const audio = new Audio("/sounds/click.mp3");
-    audio.play();
-  };
-
-  const onMouseEnter = () => {
-    const audio = new Audio("/sounds/click.mp3");
-    audio.play();
-  };
   return (
-    <Space.Compact direction="vertical" size="middle" block>
+    <div className={cn("dashboard")}>
       {products.map((product, index) => (
-        <Card onMouseEnter={onMouseEnter} key={index} title={product.title} />
+        <div key={index}>
+          <span>{product.title}</span>
+        </div>
       ))}
-      <Button onClick={onClick} type="primary">
-        qwe
-      </Button>
-    </Space.Compact>
+    </div>
   );
 };
 
